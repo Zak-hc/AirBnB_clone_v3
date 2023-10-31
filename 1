@@ -1,0 +1,11 @@
+from FileStorage import FileStorage
+
+# Créez une instance de FileStorage
+file_storage = FileStorage()
+
+# Chargez les données depuis le fichier
+data = file_storage.load_data_from_file('data.json')
+
+# Maintenant, "data" est un dictionnaire que vous pouvez utiliser
+print(data)
+
