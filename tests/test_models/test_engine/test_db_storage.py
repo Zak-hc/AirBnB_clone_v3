@@ -102,3 +102,12 @@ class TestFileStorage(unittest.TestCase):
     @unittest.skipIf(models.storage_t != 'db', "not testing file storage")
     def test_count(self):
         """Test of the count method that returns the number of instances"""
+        count = models.storage.count()
+        self.assertEqual(models.storage.count("User"), count + 1)
+        new_user = User(email="example@gmail.com", password="youououou")
+        new_user.save()
+        self.assertEqual(models.storage.count("User"), count + 1)
+        self.assertEqual(models.storage.count("State"), count + 1)
+        new_user_2 = User(email="example2@gmail.com", password="poopoppp")
+        new_user_2.save()
+        self.assertEqual(models.storage.count("User"), count + 2)
