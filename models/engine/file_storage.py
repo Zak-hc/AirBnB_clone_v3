@@ -97,5 +97,5 @@ class FileStorage:
         Returns:
             count of obj match dspecified class, orbotalt if None.
         """
-        cnt = len(self.all())
+        cnt = len(self.all(cls))
         return cnt
