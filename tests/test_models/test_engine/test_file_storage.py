@@ -129,10 +129,9 @@ class TestFileStorage(unittest.TestCase):
     def test_count(self):
         """Test of the count method that returns the number of instances"""
         count = models.storage.count()
-        new_user = User(email="example@gmail.com", password="youououou")
-        new_user.save()
-        self.assertEqual(models.storage.count("User"), count + 1)
-        new_user_2 = User(email="example2@gmail.com", password="poopoppp")
-        new_user_2.save()
-        self.assertEqual(models.storage.count("User"), count + 2)
+        self.assertEqual(models.storage.count("Person"), 0)        
+        my_state = State(name="California")
+        my_state.save()
+        self.assertEqual(models.storage.count("State"), count + 1)
+        self.assertEqual(models.storage.count(), count + 2)
         
